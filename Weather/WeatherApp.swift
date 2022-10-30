@@ -2,16 +2,20 @@
 //  WeatherApp.swift
 //  Weather
 //
-//  Created by bamboo on 10/30/22.
+//  Created by Lin Werle on 10/28/22.
 //
 
 import SwiftUI
 
 @main
 struct WeatherApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
-    }
+	
+	@StateObject private var fetcher = WeatherService()
+	
+	var body: some Scene {
+		WindowGroup {
+			ContentView()
+				.environmentObject(fetcher)
+		}
+	}
 }
